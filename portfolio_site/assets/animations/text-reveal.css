@@ -1,0 +1,45 @@
+/* text reveal animation system */
+.js .reveal-text,
+.js .reveal-group > *{
+  opacity: 0;
+  transform: translateY(28px);
+  
+  will-change: transform, opacity, filter;
+}
+
+.js .reveal-text.is-visible,
+.js .reveal-group > *.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+  
+  transition:
+    opacity .8s cubic-bezier(.22,1,.36,1),
+    transform .8s cubic-bezier(.22,1,.36,1),
+    filter .8s cubic-bezier(.22,1,.36,1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* slight emphasis for large section titles */
+.js .reveal-text.reveal-title,
+.js .reveal-group.reveal-title-group > *{
+  transform: translateY(36px);
+  
+}
+
+/* hero elements appear without waiting for scroll */
+.hero .reveal-text,
+.hero .reveal-group > *{
+  transform: translateY(22px);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .js .reveal-text,
+  .js .reveal-group > *,
+  .js .reveal-text.is-visible,
+  .js .reveal-group > *.is-visible{
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}

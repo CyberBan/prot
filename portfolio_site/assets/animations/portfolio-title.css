@@ -1,0 +1,25 @@
+
+/* isolated portfolio title animation */
+.portfolio-title{
+  display:block !important;
+  overflow:hidden !important;
+}
+.portfolio-title .row{
+  display:block !important;
+  opacity:0;
+  transform:translateY(110px);
+  
+  will-change:transform, opacity, filter;
+}
+.portfolio-title.run .row-1{
+  animation:portfolioRowIn 1s cubic-bezier(.22,1,.36,1) .08s forwards;
+}
+.portfolio-title.run .row-2{
+  animation:portfolioRowIn 1s cubic-bezier(.22,1,.36,1) .28s forwards;
+}
+@keyframes portfolioRowIn{
+  0%{opacity:0; transform:translateY(110px); }
+  65%{opacity:1; transform:translateY(-8px); }
+  100%{opacity:1; transform:translateY(0); {
+  .portfolio-title .row{opacity:1; transform:none; filter:none; animation:none !important;}
+}
